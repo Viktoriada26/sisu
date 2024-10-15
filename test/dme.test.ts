@@ -138,7 +138,21 @@ describe("DME tests", () => {
       { speaker: "usr", message: "Where is the lecture?" },
       { speaker: "sys", message: "Which course?" },
       { speaker: "usr", message: "Dialogue Systems 2" },
+      { speaker: "sys", message: "Which day is the lecture?" },
+      { speaker: "usr", message: "monday" },
       { speaker: "sys", message: "The lecture is in G212." },
     ]);
   });
+  describe("system answer in NLU", () => {
+    runTest([
+      { speaker: "sys", message: "Hello! You can ask me anything!" },
+      { speaker: "usr", message: "blabla" },
+      { speaker: "sys", message: "I am sorry, I don't understand you." },
+      { speaker: "usr", message: "Where is the lecture?" },
+      { speaker: "sys", message: "Which course?" },
+      { speaker: "usr", message: "blabla" },
+      { speaker: "sys", message: "I am sorry, I don't understand you. Which course?" },
+    ]);
+  });
+  
 });
